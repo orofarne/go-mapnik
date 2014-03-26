@@ -1,12 +1,19 @@
 package mapnik
 
+// #cgo CFLAGS: ${MAPNIKC-CFLAGS}
+// #cgo LDFLAGS: ${LDFLAGS}
 // #include <stdlib.h>
-// #include "mapnik_c_api.h"
+// #include <mapnik_c_api.h>
 import "C"
 
 import (
 	"errors"
 	"unsafe"
+)
+
+const (
+	fontPath   = "${MAPNIK-CONFIG-FONTS}"
+	pluginPath = "${MAPNIK-CONFIG-INPUT-PLUGINS}"
 )
 
 func init() {
