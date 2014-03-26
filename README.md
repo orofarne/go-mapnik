@@ -19,7 +19,7 @@ Installation
 	OR
 
     - `go get -d github.com/orofarne/go-mapnik`
-3. `cd go-mapnik` and run `cmake. && make && go test`.
+3. `cd go-mapnik` and run `cmake . && make && go test`.
    That script will setup the correct paths for including Mapnik headers and
    linking against the Mapnik shared library, as well as download the Mapnik C
    API source and `go install` the bindings.
