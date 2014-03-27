@@ -22,16 +22,42 @@ func init() {
 	RegisterFonts(fontPath)
 }
 
-func RegisterDatasources(path string) {
+func RegisterDatasources(path string) error {
 	cs := C.CString(path)
+	var cerr *C.char = (*C.char)(unsafe.Pointer(uintptr(0)))
 	defer C.free(unsafe.Pointer(cs))
-	C.mapnik_register_datasources(cs)
+	defer func() {
+		if cerr != (*C.char)(unsafe.Pointer(uintptr(0))) {
+			C.free(unsafe.Pointer(cerr))
+		}
+	}()
+	if C.mapnik_register_datasources(cs, &cerr) < 0 {
+		if cerr != (*C.char)(unsafe.Pointer(uintptr(0))) {
+			return errors.New(C.GoString(cerr))
+		} else {
+			return errors.New("Unknown error")
+		}
+	}
+	return nil
 }
 
-func RegisterFonts(path string) {
+func RegisterFonts(path string) error {
 	cs := C.CString(path)
+	var cerr *C.char = (*C.char)(unsafe.Pointer(uintptr(0)))
 	defer C.free(unsafe.Pointer(cs))
-	C.mapnik_register_fonts(cs)
+	defer func() {
+		if cerr != (*C.char)(unsafe.Pointer(uintptr(0))) {
+			C.free(unsafe.Pointer(cerr))
+		}
+	}()
+	if C.mapnik_register_fonts(cs, &cerr) < 0 {
+		if cerr != (*C.char)(unsafe.Pointer(uintptr(0))) {
+			return errors.New(C.GoString(cerr))
+		} else {
+			return errors.New("Unknown error")
+		}
+	}
+	return nil
 }
 
 // Point in 2D space
