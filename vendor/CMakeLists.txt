@@ -4,7 +4,6 @@ include(ExternalProject)
 ExternalProject_Add(mapnik-c-api
 # GIT_REPOSITORY "https://github.com/orofarne/mapnik-c-api.git"
   URL "https://github.com/orofarne/mapnik-c-api/archive/master.zip"
-  URL_MD5 "99e2aa1497d95bc0342416ae01c2a344"
   DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}
   SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/mapnik-c-api
   BUILD_IN_SOURCE 1
