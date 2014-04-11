@@ -16,10 +16,8 @@ execute_process(COMMAND mapnik-config --input-plugins
 	OUTPUT_VARIABLE MAPNIK-CONFIG-INPUT-PLUGINS OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 # boost
-find_package(Boost 1.48.0 REQUIRED COMPONENTS system)
-if(Boost_FOUND)
-	
-endif()
+find_package( Boost 1.48.0 COMPONENTS system REQUIRED )
+include_directories(${Boost_INCLUDE_DIRS})
 
 # cgo config
 set(LDFLAGS "${LDFLAGS} ${MAPNIKC-LDFLAGS} ${MAPNIK-CONFIG-LIBS}")
