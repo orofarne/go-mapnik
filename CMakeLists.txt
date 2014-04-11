@@ -24,7 +24,7 @@ find_package( Boost 1.48.0 COMPONENTS system REQUIRED )
 include_directories(${Boost_INCLUDE_DIRS})
 
 # cgo config
-set(LDFLAGS "${LDFLAGS} ${MAPNIKC-LDFLAGS} ${MAPNIK-CONFIG-LIBS} $ENV{GO_MAPNIK_LDFLAGS}")
+set(LDFLAGS "${LDFLAGS} $ENV{GO_MAPNIK_LDFLAGS} ${MAPNIKC-LDFLAGS} ${MAPNIK-CONFIG-LIBS}")
 message(STATUS "LDFLAGS: ${LDFLAGS}")
 
 configure_file(mapnik.go.in
