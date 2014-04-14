@@ -1,6 +1,6 @@
 package mapnik
 
-// #cgo CFLAGS: ${MAPNIKC-CFLAGS}
+// #cgo CFLAGS: ${MAPNIKC-CFLAGS} -I${Boost_INCLUDE_DIRS}
 // #cgo LDFLAGS: ${LDFLAGS}
 // #include <stdlib.h>
 // #include <mapnik_c_api.h>

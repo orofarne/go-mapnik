@@ -14,4 +14,4 @@ ExternalProject_Add(mapnik-c-api
 
 set(MAPNIKC-CFLAGS "-I${CMAKE_CURRENT_BINARY_DIR}/mapnik-c-api" PARENT_SCOPE)
 set(MAPNIKC-LDFLAGS
-	"${CMAKE_CURRENT_BINARY_DIR}/mapnik-c-api/libmapnik_c_static.a -lboost_system -lstdc++" PARENT_SCOPE)
+	"${CMAKE_CURRENT_BINARY_DIR}/mapnik-c-api/libmapnik_c_static.a -lstdc++" PARENT_SCOPE)
