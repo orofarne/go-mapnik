@@ -67,7 +67,7 @@ type Coord struct {
 
 // Projection from one reference system to the other
 type Projection struct {
-	p *C.struct_mapnik_projection_t
+	p *C.mapnik_projection_t
 }
 
 func (p *Projection) Free() {
@@ -83,7 +83,7 @@ func (p Projection) Forward(coord Coord) Coord {
 
 // Map base type
 type Map struct {
-	m *C.struct_mapnik_map_t
+	m *C.mapnik_map_t
 }
 
 func NewMap(width, height uint32) *Map {
